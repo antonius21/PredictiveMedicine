@@ -76,7 +76,11 @@ namespace PredictiveMedicine
             IsActive = true;
         }
 
-
+        public void SetRole(UserRole newRole)
+        {
+            _role = newRole;
+            OnPropertyChanged(nameof(Role));
+        }
 
         public void ChangePassword(string newPassword)
         {

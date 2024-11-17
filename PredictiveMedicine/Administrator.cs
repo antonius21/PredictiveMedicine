@@ -12,10 +12,10 @@ namespace PredictiveMedicine
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         private readonly IUserRepository _userRepository; // Інтерфейс для взаємодії з БД
 
-        public Administrator(int id, string firstName, string lastName, string username, string password, string email, IUserRepository userRepository)
+        public Administrator(int id, string firstName, string lastName, string username, string password, string email)
             : base(id, firstName, lastName, username, password, email, UserRole.Administrator)
         {
-            _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
+          //  _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
         }
 
 
@@ -33,10 +33,10 @@ namespace PredictiveMedicine
                         newUser = new Patient(0, firstName, lastName, username, hashedPassword, email);
                         break;
                     case UserRole.Doctor:
-                        newUser = new Doctor(0, firstName, lastName, username, hashedPassword, email);
+                        newUser = new Doctor(0, firstName, lastName, username, hashedPassword, email,UserRole.Doctor, new OncologistTreatmentStrategy(),new MachineLearningAnalyzer());
                         break;
                     case UserRole.Administrator:
-                        newUser = new Administrator(0, firstName, lastName, username, hashedPassword, email, _userRepository);
+                        newUser = new Administrator(0, firstName, lastName, username, hashedPassword, email);
                         break;
                     // Додати інші ролі тут...
                     default:

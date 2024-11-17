@@ -12,10 +12,10 @@ namespace PredictiveMedicine
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         private readonly IMedicalRecordRepository _medicalRecordRepository;
 
-        public Patient(int id, string firstName, string lastName, string username, string password, string email, IMedicalRecordRepository medicalRecordRepository)
+        public Patient(int id, string firstName, string lastName, string username, string password, string email)
             : base(id, firstName, lastName, username, password, email, UserRole.Patient)
         {
-            _medicalRecordRepository = medicalRecordRepository ?? throw new ArgumentNullException(nameof(medicalRecordRepository));
+           // _medicalRecordRepository = medicalRecordRepository ?? throw new ArgumentNullException(nameof(medicalRecordRepository));
         }
 
         public List<MedicalRecord> GetMedicalRecords()

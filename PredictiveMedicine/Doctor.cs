@@ -9,7 +9,7 @@ namespace PredictiveMedicine
     internal class Doctor : User, IDoctor
     {
         private readonly ITreatmentStrategy _treatmentStrategy;
-        private readonly IDataAnalyzer _dataAnalyzer; // Added data analyzer
+        private readonly IDataAnalyzer _dataAnalyzer;
 
         public Doctor(int id, string firstName, string lastName, string username, string password, string email, UserRole role,
                       ITreatmentStrategy treatmentStrategy, IDataAnalyzer dataAnalyzer) : base(id, firstName, lastName, username, password, email, role)
